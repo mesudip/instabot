@@ -61,7 +61,7 @@ def recent_feed_like(bot: InstaBot):
     :return:
     """
     # first check if self.media_on feed has length zero.
-    if len(bot.media_to_like) is 0:
+    if len(bot.media_to_like) == 0:
         print("Refreshing New Media")
         if bot.startup:
             first_init(bot)
@@ -76,13 +76,13 @@ def recent_feed_like(bot: InstaBot):
                     if not x['node']['viewer_has_liked']:
                         bot.media_to_like.append(x)
     # no media to like? it is awesome
-    if len(bot.media_to_like) is 0:
+    if len(bot.media_to_like) == 0:
         return "Wow! ", " no media remain to like  on recent feed"
 
     # get a media to like
     media = bot.media_to_like.pop()
     while media['node']['id'] in bot.liked_medias:
-        if len(bot.media_to_like) is 0:
+        if len(bot.media_to_like) == 0:
             return "Wow! ", " no media remain to like  on recent feed"
         media = bot.media_to_like.pop()
 
@@ -104,7 +104,7 @@ def recent_feed_comment(bot: InstaBot, comment_list: list):
     :return:
     """
     # first check if self.media_on feed has length zero.
-    if len(bot.media_to_comment) is 0:
+    if len(bot.media_to_comment) == 0:
         if bot.startup:
             first_init(bot)
         elif not bot.get_medias_from_recent_feed():
@@ -123,13 +123,13 @@ def recent_feed_comment(bot: InstaBot, comment_list: list):
                     if not already_commented:
                         bot.media_to_comment.append(y)
 
-    if len(bot.media_to_comment) is 0:
+    if len(bot.media_to_comment) == 0:
         return "Wow! ", " no media remain to comment  on recent feed"
 
-    if len(bot.media_on_feed) is 0:
+    if len(bot.media_on_feed) == 0:
         if not bot.get_medias_from_recent_feed():
             return False
-    if len(bot.media_on_feed) is 0:
+    if len(bot.media_on_feed) == 0:
         return False
     media = bot.media_on_feed.pop()
     # find the caption of the media
@@ -139,7 +139,7 @@ def recent_feed_comment(bot: InstaBot, comment_list: list):
         caption = ''
 
     # if length of comment_list is 0, set comment to '.'
-    if len(comment_list) is 0:
+    if len(comment_list) == 0:
         comment = '.'
     else:
         comment = random.choice(comment_list)
@@ -169,9 +169,9 @@ def user_follow(bot: InstaBot, tag_list: list):
         tag = random.choice(tag_list)
     else:
         return "Error!", "List of tags is empty"
-    if len(bot.media_by_tag) is 0:
+    if len(bot.media_by_tag) == 0:
         bot.media_by_tag = bot.get_media_id_by_tag(tag)
-    if len(bot.media_by_tag) is 0:
+    if len(bot.media_by_tag) == 0:
         return "Error", "no media on recent feed"
     media = bot.media_by_tag.pop()
     try:

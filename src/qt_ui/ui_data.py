@@ -26,7 +26,7 @@ def comment_data(ui: CommentForm):
         dict['error'].append('rate')
     try:
         format = [x.strip() for x in str(ui.format_text.toPlainText()).split(',')]
-        if len(format) is 0:
+        if len(format) == 0:
             dict['error'].append('format')
     except Exception as e:
         format = default_format
@@ -56,7 +56,7 @@ def follow_unfollow_data(ui: FollowUnfollowForm):
 
     tags = [y.replace('#', '') for y in [x.strip() for x in str(ui.tag_text.toPlainText()).split(',')]]
 
-    if len(tags) is 0:
+    if len(tags) == 0:
         dict['error'].append('tags')
 
     dict.update({
