@@ -1,6 +1,6 @@
 GUI Instagram Bot
 --------------------------------
-###### PyQT | based on  [Instabot.py](https://github.com/instabot-py/instabot.py)
+###### GUI with PyQT | bot based on  [Instabot.py](https://github.com/instabot-py/instabot.py)
 Instagram Bot for auto like, follow and comment on your behalf in your instagram account.
 ## Requirements
 * `Python3.5` minimum 
