@@ -5,4 +5,4 @@ instaloader==4.2.8
 blessings==1.7.0
 config42==0.4.2
 sqlalchemy==1.3.11
-PyYAML==5.1.0
+PyYAML==5.4
